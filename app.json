@@ -1,0 +1,12 @@
+{
+  name: "getir-bitaksi-hackathon",
+  description: "cok katılımcı bir app",
+  repository: "https://github.com/ademcirak/getir-bitaksi-hackathon",
+  keywords: [
+    "node",
+    "hapi",
+    "getir",
+    "bitaksi",
+    "hackathon"
+  ]
+}
