@@ -12,7 +12,7 @@ const dbOpts = {
 
 const server = new Hapi.Server();
 server.connection({
-    port: process.env.SERVER_PORT,
+    port: process.env.PORT || process.env.SERVER_PORT || 8080,
     host: process.env.SERVER_HOST
 });
 
