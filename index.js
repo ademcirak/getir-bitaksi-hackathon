@@ -39,7 +39,7 @@ server.register({
         handler: function(request, reply) {
             const db = request.mongo.db;
 
-            db.collection('records').findOne({  key: 'chp8vgSkJDbyDKAS' }, function (err, result) {
+            db.collection('records').findOne({  key: 'chp8vgSkJDbyDKAS' }, { key: 1, value: 1, createdAt:1, _id: 0 }, function (err, result) {
                 if (err) {
                     return reply(Boom.internal('Internal MongoDB error', err));
                 }
