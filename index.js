@@ -44,6 +44,11 @@ server.register({
                     return reply(Boom.internal('Internal MongoDB error', err));
                 }
 
+                if(result.createdAt && result.createdAt instanceof Date)
+                {
+                    result.createdAt = result.createdAt.toISOString().split('T')[0];
+                }
+
                 reply(result);
             });
         }
