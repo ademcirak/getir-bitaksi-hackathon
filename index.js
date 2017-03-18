@@ -34,7 +34,7 @@ server.register({
     });
 
     server.route( {
-        method: 'GET',
+        method: ['GET', 'POST'],
         path: '/getRecord',
         handler: function(request, reply) {
             const db = request.mongo.db;
