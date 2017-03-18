@@ -49,6 +49,9 @@ server.register({
                     result.createdAt = result.createdAt.toISOString().split('T')[0];
                 }
 
+                if(result.value && result.value.length > 45)
+                    result.value = result.value.substring(0,45);
+
                 reply(result);
             });
         }
