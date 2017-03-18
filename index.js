@@ -39,9 +39,18 @@ server.register({
         handler: function(request, reply) {
             const db = request.mongo.db;
 
+            if(!request.payload.key)
+            {
+                return reply(Boom.badRequest());
+            }
+
             db.collection('records').findOne({  key: request.payload.key }, { key: 1, value: 1, createdAt:1, _id: 0 }, function (err, result) {
-                if (err || !result) {
+                if (err) {
                     return reply(Boom.internal('Internal MongoDB error', err));
+                }
+
+                if(!result) {
+                    return reply(Boom.notFound('Content not found'));
                 }
 
                 if(result.createdAt && result.createdAt instanceof Date)
